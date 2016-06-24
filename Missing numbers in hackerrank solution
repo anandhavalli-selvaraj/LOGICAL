@@ -1,0 +1,65 @@
+import java.io.*;
+import java.util.*;
+
+
+public class Solution {
+    private static int[] tointarray(final String c[],final int n)
+    {
+    final int a[]=new int [n];
+    for(int i=0;i<n;i++)
+        {
+        a[i]=Short.parseShort(c[i]);
+    }
+    return a;
+}
+
+    public static void main(String[] args) throws IOException {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        final int n=Integer.parseInt(br.readLine());
+        final int a[]=tointarray(br.readLine().split(" "),n);
+        Arrays.sort(a);
+        final int n1=Integer.parseInt(br.readLine());
+        
+        final int b[]=tointarray(br.readLine().split(" "),n1);
+        Arrays.sort(b);
+        br.close();
+        br=null;
+        /*    for(int i=0;i<n;i++)
+            {
+            System.out.println(a[i]);
+        }
+        
+            for(int i=0;i<n1;i++)
+            {
+            System.out.println(b[i]);
+        }
+        System.out.println("hai");*/
+        Map<Integer,Integer>m1=new HashMap<Integer,Integer>();
+        for(int i=0;i<n1;i++)
+            {
+            
+            m1.put(b[i],(m1.get(b[i])!=null)? m1.get(b[i])+1:1);
+        }
+        
+        for(int i=0;i<n;i++)
+            {
+            int v=m1.get(a[i]);
+                
+            m1.put(a[i],(v-1));
+        }
+        int out[]=new int[n];
+        int i=0;
+        String s1="";
+        for(Map.Entry<Integer,Integer> entry:m1.entrySet())
+            {
+            if(entry.getValue()>0)
+                {
+                int k=(entry.getKey());
+                 s1=s1+Integer.toString(k)+" ";
+                
+            }
+        }
+        System.out.println(s1);
+        }
+}
