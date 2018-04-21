@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<!-- <beans default-init-method="myInit" default-destroy-method="myDisposable">  -->
+<beans>
+ <!--  <bean id="triangle" class="org.spring.javabrains.Triangle" autowire="byName">-->
+ <!--  <bean id="triangle" class="org.spring.javabrains.Triangle" autowire="byType">-->
+ <bean id="triangle" class="org.spring.javabrains.Triangle" autowire="constructor">
+  </bean>
+<!--<property name="type" value="scalene"/>  -->
+<!--  <constructor-arg value="Equilateral"/> -->
+<!-- <constructor-arg index="0" value="Isosceles"/>
+<constructor-arg index="1" value="20"/>
+-->
+<!--<constructor-arg type="java.lang.String" value="20"/>-->
+<bean id="pointA" class="org.spring.javabrains.Point">
+<property name="x" value="0"/>
+<property name="y" value="0"/>
+</bean>
+<bean id="pointB" class="org.spring.javabrains.Point">
+<property name="x" value="-20"/>
+<property name="y" value="0"/>
+</bean>
+<bean id="pointC" class="org.spring.javabrains.Point">
+<property name="x" value="0"/>
+<property name="y" value="20"/>
+</bean>
+<!--  <bean class="org.spring.javabrains.DisplayNameBeanPostProcessor"/> -->
+</beans>
